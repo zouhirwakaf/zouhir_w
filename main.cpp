@@ -1,16 +1,14 @@
-#include "mainwindow.h"
-
 #include <QApplication>
 
-#include<QWindow>
+ #include "mainwindow.h"
 
-int main(int argc, char *argv[])
-{
-    QApplication a(argc, argv);
-    MainWindow w;
+ int main(int argc, char *argv[])
+ {
+     QApplication app(argc, argv);
+     MainWindow calc;
 
-    w.show();
+calc.resize(500,900);
 
-
-    return a.exec();
-}
+     calc.show();
+     return app.exec();
+ }

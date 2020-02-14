@@ -1,51 +1,42 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINOW_H
+  #define MAINWINOW_H
 
-#include <QMainWindow>
-
-namespace Ui {
-class MainWindow;
-}
-
-class MainWindow : public QMainWindow
-{
-    Q_OBJECT
-
-public:
-    explicit MainWindow(QWidget *parent = 0);
-
-
-    ~MainWindow();
-    void checkWinner();
-
-private slots:
-    void on_toolButton_clicked();
-
-    void on_toolButton_2_clicked();
-
-    void on_toolButton_3_clicked();
-
-    void on_toolButton_4_clicked();
-
-    void on_toolButton_5_clicked();
-
-    void on_toolButton_6_clicked();
-
-    void on_toolButton_7_clicked();
-
-    void on_toolButton_8_clicked();
-
-    void on_toolButton_9_clicked();
-
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
+  #include <QWidget>
+#include<QLabel>
+#include<QGroupBox>
 
 
 
+  class Button;
 
-private:
-    Ui::MainWindow *ui;
-};
+  class MainWindow : public QWidget
+  {
+      Q_OBJECT
 
-#endif // MAINWINDOW_H
+  public:
+      MainWindow(QWidget *parent = 0);
+void checkWinner();
+
+
+  private slots:
+      void digitClicked();
+
+
+      void equalClicked();
+
+
+
+      void clear();
+
+
+  private:
+
+      Button *createButton(const QString &text, const char *member);
+      QGroupBox *creatGroup();
+
+
+      enum { NumDigitButtons = 12 };
+      Button *digitButtons[NumDigitButtons];
+  };
+
+  #endif
